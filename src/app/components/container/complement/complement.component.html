@@ -1,0 +1,94 @@
+<div class="card">
+    <div class="card-body">
+        <span class="burger fw-bold">Nos Compléments</span>
+        <!-- Tabs navs -->
+        <ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="ex3-tab-1" data-mdb-toggle="tab" href="#ex3-tabs-1" role="tab" aria-controls="ex3-tabs-1" aria-selected="true">Frites</a
+  >
+</li>
+<li class="nav-item" role="presentation">
+  <a
+    class="nav-link"
+    id="ex3-tab-2"
+    data-mdb-toggle="tab"
+    href="#ex3-tabs-2"
+    role="tab"
+    aria-controls="ex3-tabs-2"
+    aria-selected="false"
+    >Boissons</a
+  >
+</li>
+
+</ul>
+<!-- Tabs navs -->
+
+<!-- Tabs content -->
+<div class="tab-content" id="ex2-content">
+<div
+  class="tab-pane fade show active"
+  id="ex3-tabs-1"
+  role="tabpanel"
+  aria-labelledby="ex3-tab-1"
+>
+<div class="row">
+  <div class="col-2" *ngFor="let product of complementFrites">
+      <div class="car mb-5 rounded-9 hover-shadow hover-zoom bg-white">
+          <!--<div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light" (click)="handleDetailProduct(product)">-->
+          <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+              <div>
+                  <img [src]="transform( 'data:image/png;base64,' + product.image) " class="w-100 " height="190 " />
+              </div>
+
+          </div>
+          <div class="card-body ">
+              <a href=" " class="text-reset ">
+                  <h5 class="card-title text-center ">{{ product.libelle}}</h5>
+              </a>
+
+                <h6 class="text-center ">Prix: <span class="burger fw-bold">{{ product.prix }} Frs </span></h6>
+
+
+    </div>
+
+
+    <button class="btn  btn-sm mb-2 rounded-5 bg-burger text-white fw-bold" (click)=addTocart(product)> <i class="fas fa-shopping-cart " ></i></button>
+</div>
+
+</div>
+</div>
+</div>
+<div class="tab-pane fade" id="ex3-tabs-2" role="tabpanel" aria-labelledby="ex3-tab-2">
+    <div class="row">
+        <div class="col-2" *ngFor="let product of complementBoisson">
+            <div class="card mb-5 rounded-9 hover-shadow hover-zoom bg-white">
+                <!--<div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light" (click)="handleDetailProduct(product)">-->
+                <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+                    <div>
+                        <img [src]="transform( 'data:image/png;base64,' + product.image) " class="w-100 " height="190 " />
+                    </div>
+
+                </div>
+                <div class="card-body ">
+                    <a href=" " class="text-reset ">
+                        <h5 class="card-title text-center ">{{ product.libelle}}</h5>
+                    </a>
+
+                    <h6 class="text-center ">Prix: <span class="burger fw-bold">{{ product.prix }} Frs </span></h6>
+
+                </div>
+                <button class="btn  btn-sm mb-2 rounded-5 bg-burger text-white fw-bold" (click)=addTocart(product)> <i class="fas fa-shopping-cart " ></i></button>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- Tabs content -->
+
+</div>
+</div>

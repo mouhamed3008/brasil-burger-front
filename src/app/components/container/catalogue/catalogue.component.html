@@ -1,0 +1,54 @@
+<div style="background-color: rgb(248, 248, 248);" class="p-5">
+
+    <section>
+        <div class="row">
+            <div class="col-4">
+                <label for="">Libelle</label>
+                <input type="text" class="form-control form-control-sm" placeholder="Rechercher un Menu ou Burger" [(ngModel)]="searchFilter" (keyup)="search($event)" autocomplete="off">
+
+            </div>
+            <div class="col-4">
+                <label for="">Type</label>
+                <select #type class="form-control form-control-sm" (change)="filter(type)">
+              <option value="ALL"  >ALL</option>
+              <option value="BURGER"  >BURGER</option>
+              <option value="MENU">MENU</option>
+            </select>
+            </div>
+
+            <div class="col-4">
+                <label for="">Prix</label>
+                <select #Price class="form-control form-control-sm" (change)="filterPrice(Price)">
+            <option value="ALL"  >ALL</option>
+            <option value="3500" >3500</option>
+            <option value="1000">1000</option>
+          </select>
+            </div>
+        </div>
+        <div class="text-center container py-5" *ngIf="is_menu_visible">
+            <h1 class="mt-2"><strong>Nos Menus</strong></h1>
+        </div>
+
+    </section>
+    <div class="row" *ngIf="is_menu_visible">
+        <span *ngIf="productsMenu.length == 0" class="text-center text-danger">No Menus Found!</span>
+
+
+        <app-catalogue-item *ngFor="let product of productsMenu | filterSearch:searchKey:'title' " [product]="product" class="col-sm-3"></app-catalogue-item>
+    </div>
+    <section>
+        <div class="text-center container py-5" *ngIf="is_burger_visible">
+            <h1 class="mt-4 "><strong>Nos Burgers</strong></h1>
+        </div>
+    </section>
+    <div class="row" *ngIf="is_burger_visible">
+        <span *ngIf="productsBurger.length == 0" class="text-center text-danger">No Burgers Found!</span>
+
+        <app-catalogue-item *ngFor="let product of productsBurger | filterSearch:searchKey:'title'" [product]="product" class="col-sm-3"></app-catalogue-item>
+    </div>
+    <!--
+
+      <app-product-detail *ngIf="isDisplayModal && modalProduct" [product]="modalProduct"></app-product-detail>
+    -->
+
+</div>

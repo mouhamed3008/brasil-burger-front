@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Adamina&family=Alice&family=Cookie&family=Dancing+Script:wght@400;600&family=Glegoo&family=Lobster&family=Taviraj:wght@200;400&display=swap');
+body {
+    font-family: 'Adamina', serif;
+    font-family: 'Alice', serif;
+    font-family: 'Cookie', cursive;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Glegoo', serif;
+    font-family: 'Lobster', cursive;
+    font-family: 'Taviraj', serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 100%
+}
+
+.burger {
+    color: #FF8310;
+}
+
+.bg-burger {
+    background-color: #FF8310;
+}

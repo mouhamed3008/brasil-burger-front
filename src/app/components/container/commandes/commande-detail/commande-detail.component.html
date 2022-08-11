@@ -1,0 +1,82 @@
+<div class="card-header mt-5  text-center">
+    <span class="card-title h1 text-white"> Détails du Commande</span>
+</div>
+
+
+<div class="row mt-5">
+    <div class="col-10 offset-1">
+        <!-- Card data starts -->
+        <div class="card shadow bg-white">
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-2 col-xl-4">
+                            <div class="row">
+                                <span class="h6 fw-bold burger">Informations de la Commande</span>
+                                <span>Commandé Le: <span class="text-warning ">{{commande.commandeAt | date}}</span></span>
+                                <span>Nombe de Produits: <span class="text-warning ">{{commande.produits.length}}</span></span>
+                                <span>Status: <span [ngClass]="(commande.status=='en cours') ? 'badge badge-warning p-1' : (commande.status=='terminer') ? 'badge badge-success p-1':  'badge badge-danger p-1'">{{commande.status}}</span></span>
+                            </div>
+                        </div>
+
+                        <div class="col-2 col-xl-4 offset-4">
+                            <div class="row">
+                                <span class="h6 fw-bold burger">Informations du Client</span>
+
+                                <span>Nom du Client: <span class="text-warning ">{{commande.client.nom.toUpperCase()}} {{commande.client.prenom.toUpperCase()}}</span></span>
+                                <span>N° Tel.: <span class="text-warning ">{{commande.client.telephone }}</span></span>
+                                <span>email: <span class="text-warning ">{{commande.client.email }}</span></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row offset-8">
+                        <button class="btn btn-sm btn-danger col-3 me-1 mt-5 mb-3 btn-rounded">Annuler</button>
+                        <button class="btn btn-sm btn-success col-3 me-1 mt-5 mb-3 btn-rounded">Valider</button>
+                        <button class="btn btn-sm btn-warning col-3 me-1 mt-5 mb-3 btn-rounded">Livrer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card data ends -->
+
+
+        <div class="card shadow bg-white mt-3">
+            <div class="card-content">
+                <div class="card-body">
+
+
+                    <div class="row">
+                        <div class="card col-2" *ngFor="let product of commande.produits">
+                            <div class="card mb-5 rounded-9 hover-shadow hover-zoom bg-white">
+                                <!--<div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light" (click)="handleDetailProduct(product)">-->
+                                <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+                                    <div>
+                                        <img [src]="transform( 'data:image/png;base64,' + product.products.image) " class="w-100 " height="190 " />
+                                    </div>
+
+                                </div>
+                                <div class="card-body ">
+                                    <a href=" " class="text-reset ">
+                                        <h5 class="card-title text-center ">{{ product.products.libelle}}</h5>
+                                    </a>
+
+                                    <h6 class="text-center ">Prix: <span class="burger fw-bold">{{ product.products.prix }} Frs </span></h6>
+
+                                    <h6 class="text-center ">Nombre: <span class="burger fw-bold"> {{ product.qty }} </span></h6>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

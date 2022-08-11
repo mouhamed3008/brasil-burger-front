@@ -1,0 +1,19 @@
+<div class="container-fluid mt-5">
+    <div class="card-header bg-burger mt-5">
+        <span class=" h6 text-center text-white"></span>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="search mb-5 col-4 offset-8">
+                    <input type="text" name="" value="" class="form-control form-control-sm" placeholder="Rechercher">
+                </div>
+            </div>
+            <div class="row">
+
+                <app-livraison-item *ngFor="let zone of zones" [zone]="zone" class="col-2"></app-livraison-item>
+            </div>
+        </div>
+    </div>
+</div>
